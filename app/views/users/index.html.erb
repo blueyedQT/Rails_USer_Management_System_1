@@ -1,5 +1,6 @@
 <% content_for :left do %>
 	<h1>Listing Users</h1>
+	<% if @users %>
 	<table class="table table-hover">
 		<thead>
 			<tr>
@@ -9,14 +10,17 @@
 			</tr>
 		</thead>
 		<tbody>
+			<% @users.each do |user| %>
 			<tr>
-				<td>Katrina</td>
-				<td>Sanford</td>
-				<td>katrina.sanford@hotmail.com</td>
+				<td><%= user.first_name %></td>
+				<td><%= user.last_name %></td>
+				<td><%= user.email_address %></td>
 			</tr>
+			<% end %>
 		</tbody>
 	</table>
+	<% end %>
 <% end %>
 <% content_for :right do %>
-	<p>Haha!</p>
+	<p>(This is the right column)</p>
 <% end %>
